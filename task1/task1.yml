@@ -1,0 +1,20 @@
+---
+- name: Install Apache
+  hosts: all  
+  user: root
+  tasks:
+  - name: install httpd
+    yum: 
+    Apache enabled and running
+    service:
+     name: httpd
+     enabled: true
+     state: started
+  - name: Creating a file with content
+    copy:
+     dest: "/var/www/html/index.html"
+     content: |
+      Hello World
+     name: httpd
+     state: present
+     
